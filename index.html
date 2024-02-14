@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments"># Hi giga poop balls penis...</span><br/>
+			<span class="comments"># I miss u...a lot</span><br/>
+			<span class="comments"># and dis valentine...les rehearse the story we are going to tell our kidz ;&#41;</span><br/>
+			<span class="comments"># Once upon a post covid... There were two monkis, one smol, one tal: </span><br/>
+			i = BoyMonki(<span class="string">"ebby sun"</span>, tall);<br/>
+			u = GirlMonki(<span class="string">"poopy tai"</span>, short, hair=<span class="string">"kewl"</span>);<br/>
+			<span class="comments"># In June of 2022, the two monkis ran into each other at stony mid. </span><br/>
+			i.meet(u, location=<span class="string">"stony mid"</span>)<br/>
+			<span class="comments"># They became best bro's and watched lots of horror movies that gurl monki didn't want to see... </span><br/>
+			watch_movies(i, u, scared=<span class="string">True</span>) &#128123;<br/>
+			<span class="comments"># Then, boi monki asked gurlmonki out to new york citi</span><br/>
+			i.confess(u)<br/>
+			<span class="comments"># July 16, 2022, gurl monki became boi monki's world.</span><br/>
+			u.accepted(i)<br/>
+			<span class="comments"># Since then, the epic adventure of edwad and leann started</span><br/>
+			love_adventure(u, i)<br/>
+			<span class="comments"># Dispite their distance, we stayed stronk</span><br/>
+			stronk(u, i)<br/>
+			negate(distance)<br/>
+			<span class="comments"># They studied together.</span><br/>
+			stoody(u, i)<br/>
+			<span class="comments"># They watched shows together.</span><br/>
+			binge(u, i)<br/>
+			<span class="comments"># They enjoy foodge together.</span><br/>
+			nom(u, i)<br/>
+			<span class="comments"># They laufed together.</span><br/>
+			har(u, i)<br/>
+			<span class="comments"># They cri together.</span><br/>
+			cri(u, i)<br/>
+			<span class="comments"># They even invented a language together.</span><br/>
+			speakge_goodge(balls=<span class="string">yaur</span>)<br/>
+			<span class="comments"># Gurl monki is the the lob of boi monki's life. &#129438;</span><br/>
+			while <span class="keyword">True</span>:<br/>
+			<span class="placeholder"></span><span class="keyword">if</span> u.with(i):<br/>
+			<span class="placeholder"></span><span class="placeholder"></span>u = everything<br/>
+			<span class="placeholder"></span><span class="keyword">else</span>:<br/>
+			<span class="placeholder"></span><span class="placeholder"></span>everything = u<br/>
+			<span class="comments"># They den were separated by kollege, but lobed harder den before: </span><br/>
+			u|i<br/>
+			i.lob(u, much=MAX_INT+1)<br/>
+			u.lob(i, much=MAX_INT)<br/>
+			<span class="comments"># The rest is still in the making...but one thing is for sure: </span><br/>
+			i.marry(u, in_the_future=<span class="keyword">True</span>)<br/>
+			i.live_happily_forever_with(u)<br/>	
+			<span class="comments"># Happy Valentines Dae Poopy &lt;3</span>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					The current chapter in our story:	
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					lob u forever, ever and ever<br/>
+					<div class="signature">- forever urs, ebby &#128511;</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copyright">
+	</div>
+</div>
+<script type="text/javascript">
+	var offsetX = $("#loveHeart").width() / 2;
+	var offsetY = $("#loveHeart").height() / 2 - 55;
+	var together = new Date();
+	// 此处月份介于 0 ~ 11 之间。用本地时间表示，如 8 月要用 7 表示。
+	together.setFullYear(2022, 6, 16);
+	together.setHours(15);
+	together.setMinutes(0);
+	together.setSeconds(0);
+	together.setMilliseconds(0);
+
+	if (!document.createElement('canvas').getContext) {
+		var msg = document.createElement("div");
+		msg.id = "errorMsg";
+		msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+		document.body.appendChild(msg);
+		$("#code").css("display", "none")
+		$("#copyright").css("position", "absolute");
+		$("#copyright").css("bottom", "10px");
+		document.execCommand("stop");
+	} else {
+		setTimeout(function () {
+			startHeartAnimation();
+		}, 5000);
+
+		timeElapse(together);
+		setInterval(function () {
+			timeElapse(together);
+		}, 500);
+
+		adjustCodePosition();
+		$("#code").typewriter();
+	}
+</script>
+</body>
+</html>

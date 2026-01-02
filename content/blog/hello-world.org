@@ -1,0 +1,25 @@
+#+OPTIONS: toc:nil title:nil
+
+#+BEGIN_EXPORT html
+<header class="site-header">
+  <div class="site-title">Writings</div>
+  <nav class="site-nav">
+    <a href="../index.html">Home</a>
+    <a href="../writings.html">Writings</a>
+    <a href="../papers.html">Papers</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+</header>
+#+END_EXPORT
+
+#+TITLE: First Note
+
+* First Note
+This is a simple blog post 
+
+** A simple idea
+- One point
+- Another point
+
+** A short paragraph
+Some thoughts go here. Add links like [[https://example.com][this]] when needed.

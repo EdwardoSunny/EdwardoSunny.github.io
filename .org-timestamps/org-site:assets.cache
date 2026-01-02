@@ -1,0 +1,4 @@
+(setq org-publish-cache (make-hash-table :test 'equal :weakness nil :size 100))
+(puthash ":project:" "org-site:assets" org-publish-cache)
+(puthash ":cache-file:" "/home/edwardsun/Documents/site.org/.org-timestamps/org-site:assets.cache" org-publish-cache)
+(puthash "Xa6e1db5f944e7b9a1657abb63397014ed69b1295" '(26967 32448 698054 787000) org-publish-cache)

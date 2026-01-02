@@ -1,0 +1,18 @@
+#+OPTIONS: toc:nil title:nil
+
+#+BEGIN_EXPORT html
+<header class="site-header">
+  <div class="site-title">Writings</div>
+  <nav class="site-nav">
+    <a href="./index.html">Home</a>
+    <a href="./papers.html">Papers</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+</header>
+#+END_EXPORT
+
+* Essays and Notes
+This is the home for blog posts and shorter essays.
+
+** Posts
+- [[./blog/hello-world.org][First Note]]

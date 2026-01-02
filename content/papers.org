@@ -1,0 +1,28 @@
+#+OPTIONS: toc:nil title:nil
+
+#+BEGIN_EXPORT html
+<header class="site-header">
+  <div class="site-title">Papers</div>
+  <nav class="site-nav">
+    <a href="./index.html">Home</a>
+    <a href="./writings.html">Writings</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+</header>
+#+END_EXPORT
+
+* Publications
+Selected papers and preprints will live here.
+
+#+BEGIN_EXPORT html
+<div class="paper-list">
+  <article class="paper-item">
+    <img src="https://placehold.co/280x200" alt="Paper cover placeholder" />
+    <div>
+      <h3 class="paper-title">Paper Title Placeholder</h3>
+      <p class="paper-meta">Venue, Year</p>
+      <p class="paper-blurb">Short blurb about the contribution, methods, or key findings.</p>
+    </div>
+  </article>
+</div>
+#+END_EXPORT

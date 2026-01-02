@@ -1,0 +1,18 @@
+#+OPTIONS: toc:nil title:nil
+
+#+BEGIN_EXPORT html
+<header class="site-header">
+  <div class="site-title">Contact</div>
+  <nav class="site-nav">
+    <a href="./index.html">Home</a>
+    <a href="./writings.html">Writings</a>
+    <a href="./papers.html">Papers</a>
+  </nav>
+</header>
+#+END_EXPORT
+
+* Contact
+
+- [[https://scholar.google.com/citations?user=W9g-njEAAAAJ&hl=en][Google Scholar]]
+- [[https://github.com/edwardosunny][GitHub]]
+- [[mailto:edwardsun12895@g.ucla.edu][edwardsun12895@g.ucla.edu]]

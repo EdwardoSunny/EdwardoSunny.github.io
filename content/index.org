@@ -1,5 +1,45 @@
-* Edward Poop
+#+OPTIONS: toc:nil title:nil
 
-My name is edward and something
+#+BEGIN_EXPORT html
+<header class="site-header">
+  <div class="site-title">Edward Sun</div>
+  <nav class="site-nav">
+    <a href="./writings.html">Writings</a>
+    <a href="./papers.html">Papers</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+</header>
+#+END_EXPORT
 
-Here's a link to my [[./config.org][Emacs Config]]
+#+BEGIN_EXPORT html
+<section class="hero">
+  <img src="./assets/me.jpeg" alt="Portrait" />
+  <div>
+    <p class="intro">I am a third-year computer science student at UCLA. I have worked on multimodal LLMs, reasoning, and agents with applications in biology, finance, and robotics advised by <a href="https://web.cs.ucla.edu/~weiwang/">Wei Wang</a> and <a href="https://yuchencui.cc/">Yuchen Cui</a>. I was named a <a href="https://www.cs.ucla.edu/sophomore-cs-student-earns-2025-goldwater-scholarship/">Goldwater Scholar</a> in 2025. </p> 
+    <p class="subtle">This site hosts my writings, research, and ways to get in touch.</p>
+  </div>
+</section>
+#+END_EXPORT
+
+
+* Highlights
+#+BEGIN_EXPORT html
+<div class="paper-list">
+  <article class="paper-item">
+    <img src="https://placehold.co/280x200" alt="Paper cover placeholder" />
+    <div>
+      <h3 class="paper-title">Highlighted Paper Title</h3>
+      <p class="paper-meta">Venue, Year</p>
+      <p class="paper-blurb">Short blurb about the contribution, methods, or key findings.</p>
+    </div>
+  </article>
+  <article class="paper-item">
+    <img src="https://placehold.co/280x200" alt="Paper cover placeholder" />
+    <div>
+      <h3 class="paper-title">Another Highlighted Paper</h3>
+      <p class="paper-meta">Venue, Year</p>
+      <p class="paper-blurb">Short blurb about why this work matters or what it enables.</p>
+    </div>
+  </article>
+</div>
+#+END_EXPORT

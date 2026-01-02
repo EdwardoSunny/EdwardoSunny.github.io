@@ -16,7 +16,8 @@
 (setq org-html-validation-link nil            ;; Don't show validation link
       org-html-head-include-scripts nil       ;; Use our own scripts
       org-html-head-include-default-style nil ;; Use our own styles
-      org-html-head "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/spcss@0.9.0'>\n<link rel='stylesheet' href='/site.css'>")
+      org-html-head "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/spcss@0.9.0'>\n<link rel='stylesheet' href='/site.css'>"
+      org-html-title-format "Edward Sun")
 
 ;; Keep publish cache local to avoid permission issues in shared dirs.
 (setq org-publish-timestamp-directory "./.org-timestamps/")

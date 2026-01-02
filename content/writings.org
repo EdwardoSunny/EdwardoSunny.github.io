@@ -1,4 +1,4 @@
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil title:nil
 #+TITLE: Edward Sun
 
 #+BEGIN_EXPORT html
@@ -13,7 +13,7 @@
 #+END_EXPORT
 
 * Essays and Notes
-This is the home for blog posts and shorter essays.
+This is the home for some of my explorations and less formal writings.
 
 ** Posts
 - [[./blog/hello-world.org][First Note]]

@@ -1,0 +1,5 @@
+* Edward Poop
+
+My name is edward and something
+
+Here's a link to my [[./config.org][Emacs Config]]

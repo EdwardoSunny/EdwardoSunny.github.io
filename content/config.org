@@ -1,0 +1,1534 @@
+# Created 2024-07-28 Sun 17:38
+#+TITLE: 
+#+AUTHOR: Edward Sun
+#+TITLE Edward's GNU Emacs Literate Config
+#+description: Edward's personal Emacs
+#+startup: showeverything
+
+* Keybinds Guide
+Here's a guide to the keybinds in my configuration.
+
+- All bindings that start with =SPC= are Evil leader keys in *normal/visual* states.
+- "Global" means they work in most buffers, regardless of major mode.
+- Context like “Eshell” or “Copilot popup” means those keys only apply there.
+- Key notation examples:
+  - =SPC f f= → press =SPC=, then =f=, then =f=
+  - =C-x B= → press =Ctrl=+x, then B
+  - =C-<wheel-up>= → hold Ctrl and scroll up
+
+** Cheatsheet Summary by Prefix
+
+- Buffers → =SPC b=
+- Files → =SPC f=
+- Windows → =SPC w=
+- Projects → =SPC p=
+- Search → =SPC /=, =C-s=
+- Help → =SPC h=
+- Theme → =SPC t t=
+- Org → =SPC o …=
+- Roam → =SPC o f~, =SPC o l~, =SPC o g=
+- Eshell → =SPC o t~, =SPC o T=
+- LaTeX → =SPC l …=
+- SSH → =SPC r 1–5=
+- Workspaces → =SPC TAB=
+- Zoom → =C-=~, =C--=
+- Escape → =ESC~ (quit anything)
+
+---
+
+** General Editing & Navigation
+
+*** Global Editing / Navigation
+
+| Key             | Context         | Command                    | Description                                     |
+|-----------------+-----------------+----------------------------+-------------------------------------------------|
+| ~C-SPC~         | Global          | ~completion-at-point~      | Trigger generic completion at point             |
+| ~C-s~           | Global          | ~swiper~                   | Search forward in buffer                         |
+| ~C-x B~         | Global          | ~ivy-switch-buffer-other-window~ | Switch buffer in another window         |
+
+---
+
+** Buffers & Windows
+
+*** Buffer Management (Leader)
+
+| Key            | Context            | Command                               | Description                            |
+|----------------+--------------------+---------------------------------------+----------------------------------------|
+| ~SPC ,~        | Evil normal/visual | ~ibuffer~                             | Open Ibuffer                           |
+| ~SPC b c~      | Evil normal/visual | ~clone-indirect-buffer-other-window~  | Clone buffer to other window           |
+| ~SPC b d~      | Evil normal/visual | ~kill-current-buffer~                 | Kill current buffer                    |
+| ~SPC b n~      | Evil normal/visual | ~next-buffer~                         | Next buffer                            |
+| ~SPC b p~      | Evil normal/visual | ~previous-buffer~                     | Previous buffer                        |
+| ~SPC b B~      | Evil normal/visual | ~ibuffer-list-buffers~                | Show all buffers                       |
+| ~SPC b D~      | Evil normal/visual | ~kill-buffer~                         | Kill a chosen buffer                   |
+
+*** Window Management (Split / Close / Resize)
+
+| Key          | Context            | Command                           | Description                        |
+|--------------+--------------------+-----------------------------------+------------------------------------|
+| ~SPC w v~    | Evil normal/visual | ~evil-window-vsplit~              | Split right                        |
+| ~SPC w s~    | Evil normal/visual | ~evil-window-split~               | Split below                        |
+| ~SPC w d~    | Evil normal/visual | ~evil-window-delete~              | Close window                       |
+| ~SPC w D~    | Evil normal/visual | ~delete-other-windows~            | Keep only this window              |
+| ~SPC w [~    | Evil normal/visual | ~evil-window-decrease-width~      | Shrink width                       |
+| ~SPC w ]~    | Evil normal/visual | ~evil-window-increase-width~      | Grow width                         |
+| ~SPC w -~    | Evil normal/visual | ~evil-window-decrease-height~     | Shrink height                      |
+| ~SPC w =~    | Evil normal/visual | ~evil-window-increase-height~     | Grow height                        |
+
+*** Window Navigation & Buffer Movement
+
+| Key          | Context            | Command             | Description                        |
+|--------------+--------------------+---------------------+------------------------------------|
+| ~SPC w h~    | Evil normal/visual | ~evil-window-left~  | Move focus left                    |
+| ~SPC w j~    | Evil normal/visual | ~evil-window-down~  | Move focus down                    |
+| ~SPC w k~    | Evil normal/visual | ~evil-window-up~    | Move focus up                      |
+| ~SPC w l~    | Evil normal/visual | ~evil-window-right~ | Move focus right                   |
+| ~SPC w w~    | Evil normal/visual | ~evil-window-next~  | Cycle next window                  |
+| ~SPC w H~    | Evil normal/visual | ~buf-move-left~     | Move *buffer* left                 |
+| ~SPC w J~    | Evil normal/visual | ~buf-move-down~     | Move *buffer* down                 |
+| ~SPC w K~    | Evil normal/visual | ~buf-move-up~       | Move *buffer* up                   |
+| ~SPC w L~    | Evil normal/visual | ~buf-move-right~    | Move *buffer* right                |
+
+*** Workspaces (Perspective)
+
+| Key         | Context            | Command           | Description                |
+|-------------+--------------------+-------------------+----------------------------|
+| ~SPC TAB~   | Evil normal/visual | ~perspective-map~ | Workspace menu             |
+
+---
+
+** Files & Projects
+
+*** File Operations (Leader)
+
+| Key          | Context            | Command                     | Description                            |
+|--------------+--------------------+-----------------------------+----------------------------------------|
+| ~SPC .~      | Evil normal/visual | ~find-file~                 | Find file                              |
+| ~SPC f f~    | Evil normal/visual | ~find-file~                 | Find file                              |
+| ~SPC f r~    | Evil normal/visual | ~counsel-recentf~           | Recent files                           |
+| ~SPC f s~    | Evil normal/visual | ~save-buffer~               | Save                                    |
+| ~SPC f u~    | Evil normal/visual | ~sudo-edit-find-file~       | Open file with sudo                     |
+| ~SPC f y~    | Evil normal/visual | ~dt/show-and-copy-buffer-path~ | Show & copy file path               |
+| ~SPC f C~    | Evil normal/visual | ~copy-file~                 | Copy file                               |
+| ~SPC f D~    | Evil normal/visual | ~delete-file~               | Delete file                             |
+| ~SPC f R~    | Evil normal/visual | ~rename-file~               | Rename file                             |
+| ~SPC f S~    | Evil normal/visual | ~write-file~                | Save as…                                |
+| ~SPC f U~    | Evil normal/visual | ~sudo-edit~                 | Reopen file with sudo                   |
+
+*** Project Management (Projectile)
+
+| Key          | Context            | Command                   | Description                                         |
+|--------------+--------------------+---------------------------+-----------------------------------------------------|
+| ~SPC p~      | Evil normal/visual | ~projectile-command-map~  | Projectile menu                                     |
+| ~SPC p p~    | via menu           | ~projectile-switch-project~ | Switch project                                  |
+| ~SPC p f~    | via menu           | ~projectile-find-file~      | Find file in project                             |
+| ~SPC p s g~  | via menu           | ~projectile-ripgrep~        | Ripgrep project-wide search                      |
+
+---
+
+** Search, Help & Theming
+
+*** Search
+
+| Key        | Context            | Command  | Description                  |
+|------------+--------------------+----------+------------------------------|
+| ~SPC /~    | Evil normal/visual | ~swiper~ | Search buffer                |
+
+*** Help
+
+| Key            | Context            | Command               | Description          |
+|----------------+--------------------+-----------------------+----------------------|
+| ~SPC h f~      | Evil normal/visual | ~describe-function~   | Describe function    |
+| ~SPC h v~      | Evil normal/visual | ~describe-variable~   | Describe variable    |
+| ~SPC h r r~    | Evil normal/visual | ~reload-init-file~    | Reload config        |
+
+---
+
+** Org Mode & Org-roam
+*** Org mode shortcuts
+
+| Key        | Context            | Command    | Description                                      |
+|------------+--------------------+------------+--------------------------------------------------|
+| ~C-RETURN~ | Evil normal/visual | ~N/A~      | New line with same heading level/list level      |
+| ~TAB~      | Evil insert        | ~N/A~      | Make this heading/list indented in a lower level |
+| ~TAB~      | Evil normal        | ~N/A~      | Fold/unfold Headings/lists                       |
+| ~C-c C-t~  | Evil normal/visual | ~org-todo~ | Toggle through TODO states                       |
+| ~C-c C-c~  | Evil normal/visual | ~N/A~      | Check a checkbox                                 |
+
+*** Org Capture & Roam (Leader)
+
+| Key          | Context            | Command                   | Description                                  |
+|--------------+--------------------+---------------------------+----------------------------------------------|
+| ~SPC o c~    | Evil normal/visual | ~org-capture~             | Capture note                                  |
+| ~SPC o f~    | Evil normal/visual | ~org-roam-node-find~      | Find/create Org-roam node                    |
+| ~SPC o l~    | Evil normal/visual | ~org-roam-buffer-toggle~  | Toggle backlinks buffer                       |
+| ~SPC o g~    | Evil normal/visual | ~org-roam-ui-mode~        | Open Org-roam graph UI                        |
+
+*** Org-roam Insert
+
+| Key      | Context | Command                 | Description                                |
+|----------+---------+-------------------------+--------------------------------------------|
+| ~C-a~    | Global  | ~org-roam-node-insert~  | Insert Org-roam node link                  |
+
+*** Org Tempo Snippets
+
+| Typed + TAB | Expands to…                         |
+|-------------+--------------------------------------|
+| <s          | #+BEGIN_SRC / END_SRC                |
+| <q          | #+BEGIN_QUOTE / END_QUOTE            |
+| <e          | #+BEGIN_EXAMPLE / END_EXAMPLE        |
+| <l          | LaTeX export block                   |
+| <v          | Verse block                          |
+
+---
+
+** Terminal, Eshell & Remote Machines
+
+*** Eshell (Leader)
+
+| Key          | Context            | Command          | Description                     |
+|--------------+--------------------+------------------+---------------------------------|
+| ~SPC o t~    | Evil normal/visual | ~eshell-toggle~  | Toggle popup Eshell            |
+| ~SPC o T~    | Evil normal/visual | ~eshell-new~     | New named Eshell               |
+
+*** SSH Shortcuts
+
+| Key           | Context            | Command                  | Destination                                      |
+|---------------+--------------------+--------------------------+--------------------------------------------------|
+| ~SPC r 1~     | Evil normal/visual | visit-remote-project-1   | uril-1.cs.ucla.edu                               |
+| ~SPC r 2~     | Evil normal/visual | visit-remote-project-2   | scai3.cs.ucla.edu                                |
+| ~SPC r 3~     | Evil normal/visual | visit-remote-project-3   | scai4.cs.ucla.edu                                |
+| ~SPC r 4~     | Evil normal/visual | visit-remote-project-4   | 192.168.0.69                                      |
+| ~SPC r 5~     | Evil normal/visual | visit-remote-project-5   | 104.171.203.34                                    |
+
+*** “File Tree” / Speedbar
+
+| Key        | Context            | Command     | Description                 |
+|------------+--------------------+-------------+-----------------------------|
+| ~SPC s b~  | Evil normal/visual | ~speedbar~  | Toggle Speedbar tree        |
+
+---
+
+** LaTeX / AUCTeX
+
+*** Preview
+
+| Key            | Context            | Command             | Description                    |
+|----------------+--------------------+---------------------+--------------------------------|
+| ~SPC l p p~    | Evil normal/visual | ~preview-buffer~    | Preview whole buffer           |
+| ~SPC l p a~    | Evil normal/visual | ~preview-at-point~  | Preview at point               |
+| ~SPC l p d~    | Evil normal/visual | ~preview-document~  | Preview full document          |
+
+*** Compile
+
+| Key            | Context            | Command                 | Description                |
+|----------------+--------------------+-------------------------+----------------------------|
+| ~SPC l c a~    | Evil normal/visual | ~TeX-command-run-all~   | Full compile               |
+
+---
+
+** Completion, LSP, Copilot & Company
+
+*** Company / LSP
+
+| Key     | Context                     | Command                           | Description                           |
+|---------+-----------------------------+-----------------------------------+---------------------------------------|
+| ~TAB~   | LSP buffers                 | ~company-indent-or-complete-common~ | Indent or complete                |
+| ~TAB~   | Company popup               | ~company-complete-selection~      | Accept completion                     |
+
+*** Copilot
+
+| Key         | Context            | Command                            | Description                  |
+|-------------+--------------------+------------------------------------+------------------------------|
+| ~TAB~       | Copilot popup      | ~copilot-accept-completion~        | Accept full suggestion       |
+| ~C-TAB~     | Copilot popup      | ~copilot-accept-completion-by-word~ | Accept word-by-word         |
+
+---
+
+** Zooming & View
+
+| Key                | Context | Command               | Description                       |
+|--------------------+---------+-----------------------+-----------------------------------|
+| ~C-=~              | Global  | ~text-scale-increase~ | Zoom in                          |
+| ~C--~              | Global  | ~text-scale-decrease~ | Zoom out                         |
+| ~C-<wheel-up>~     | Global  | ~text-scale-increase~ | Zoom in with mouse               |
+| ~C-<wheel-down>~   | Global  | ~text-scale-decrease~ | Zoom out with mouse              |
+
+---
+
+* Important Programs to Load First
+** Straight Package Manager
+This is loaded in init.el before org-babel-load-file is called.
+
+#+begin_src emacs-lisp
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+#+end_src
+
+** Load Evil Mode
+#+begin_src emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  (setq evil-vsplit-window-right t)
+  (setq evil-split-window-below t)
+  ;; let C-u be scroll
+  (setq evil-want-C-u-scroll t)
+  (evil-mode)
+  :config
+  ;; Allow undo and redo like vim
+  (use-package undo-fu)
+  (setq evil-undo-system `undo-fu) 
+
+  ;; Custom function to set keybindings for vterm and other buffers
+  (defun my-setup-evil-keybindings ()
+    (if (derived-mode-p 'vterm-mode)
+        (progn
+          ;; In vterm, use vterm-yank for p and P
+          (define-key evil-normal-state-map "p" 'vterm-yank)
+          (define-key evil-normal-state-map "P" 'vterm-yank))
+      (progn
+        ;; In other buffers, use the default paste behavior
+        (define-key evil-normal-state-map "p" 'evil-paste-after)
+        (define-key evil-normal-state-map "P" 'evil-paste-before))))
+
+  ;; Add hook to run our custom setup function when switching buffers
+  (add-hook 'post-command-hook 'my-setup-evil-keybindings) 
+)
+
+(use-package evil-collection
+  :after evil
+  :config
+  (setq evil-collection-mode-list '(dashboard dired ibuffer))
+  (evil-collection-init))
+
+(use-package evil-tutor)
+
+;; fix SPC RET and TAB in evil mode so can interact with regular emacs
+(with-eval-after-load `evil-maps
+    (define-key evil-motion-state-map (kbd "SPC") nil)
+    (define-key evil-motion-state-map (kbd "TAB") nil)
+    (define-key evil-motion-state-map (kbd "RET") nil)
+)
+
+;; allow redo, emacs 28+ only
+(evil-set-undo-system 'undo-redo)
+
+(setq org-return-follows-link t)
+#+end_src
+
+** EShell 
+Vterm requires compiling with cmake, etc. I want everything to be package as much as possible into emacs itself.
+#+begin_src emacs-lisp
+(defun efs/configure-eshell ()
+  ;; Save command history when commands are entered
+  (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
+
+  ;; Truncate buffer for performance
+  (add-to-list 'eshell-output-filter-functions 'eshell-truncate-buffer)
+
+  ;; Bind some useful keys for evil-mode
+  (evil-define-key '(normal insert visual) eshell-mode-map (kbd "C-r") 'counsel-esh-history)
+  (evil-define-key '(normal insert visual) eshell-mode-map (kbd "<home>") 'eshell-bol)
+  (evil-normalize-keymaps)
+
+  (setq eshell-history-size         10000
+        eshell-buffer-maximum-lines 10000
+        eshell-hist-ignoredups t
+        eshell-scroll-to-bottom-on-input t))
+
+(use-package eshell-git-prompt
+  :after eshell)
+
+(use-package eshell
+  :hook (eshell-first-time-mode . efs/configure-eshell)
+  :config
+
+  (with-eval-after-load 'esh-opt
+    (setq eshell-destroy-buffer-when-process-dies t)
+    (setq eshell-visual-commands '("htop" "zsh" "vim")))
+
+  (eshell-git-prompt-use-theme 'powerline))
+
+(setopt eshell-prompt-regexp "^[^#$\n]* [$#] ")
+(setopt eshell-highlight-prompt nil)
+
+(setq company-global-modes `(not eshell-mode))
+
+(use-package eshell-syntax-highlighting
+  :after esh-mode
+  :config
+  (eshell-syntax-highlighting-global-mode +1))
+
+(use-package eshell-toggle
+:custom
+(eshell-toggle-size-fraction 3)
+(eshell-toggle-use-projectile-root t)
+(eshell-toggle-run-command nil)
+;; (eshell-toggle-init-function 
+;;  #'eshell-toggle-init-ansi-term)
+)
+
+(defun eshell-new (name)
+"Create new eshell buffer named NAME."
+(interactive "sName: ")
+(setq name (concat "$" name))
+(eshell)
+(rename-buffer name)
+)
+#+end_src
+
+** Load Which Key
+#+begin_src emacs-lisp
+(use-package which-key
+  :init
+    (which-key-mode 1)
+  :diminish
+  :config
+  (setq which-key-side-window-location 'bottom
+	  which-key-sort-order #'which-key-key-order-alpha
+	  which-key-allow-imprecise-window-fit nil
+	  which-key-sort-uppercase-first nil
+	  which-key-add-column-padding 1
+	  which-key-max-display-columns nil
+	  which-key-min-display-lines 6
+	  which-key-side-window-slot -10
+	  which-key-side-window-max-height 0.25
+	  which-key-idle-delay 0.8
+	  which-key-max-description-length 25
+	  which-key-allow-imprecise-window-fit nil
+	  which-key-separator " → " ))
+#+end_src
+
+** Load Ivy
+#+begin_src emacs-lisp
+(use-package counsel
+  :after ivy
+  :diminish
+  :config (counsel-mode))
+
+(use-package ivy
+  :bind
+  ;; ivy-resume resumes the last Ivy-based completion.
+  (("C-c C-r" . ivy-resume)
+   ("C-x B" . ivy-switch-buffer-other-window))
+  :diminish
+  :custom
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq enable-recursive-minibuffers t)
+  :config
+  (ivy-mode))
+
+(use-package all-the-icons-ivy-rich
+  :init (all-the-icons-ivy-rich-mode 1))
+
+(use-package ivy-rich
+  :after ivy
+  :init (ivy-rich-mode 1) ;; this gets us descriptions in M-x.
+  :custom
+  (ivy-virtual-abbreviate 'full
+   ivy-rich-switch-buffer-align-virtual-buffer t
+   ivy-rich-path-style 'abbrev)
+  :config
+  (ivy-set-display-transformer 'ivy-switch-buffer
+                               'ivy-rich-switch-buffer-transformer))
+(use-package swiper
+  :after ivy
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper)))
+#+end_src
+
+** Buffer Move
+Allow buffer movement like i3. Can move buffers around and reconfigure. Credit to Lucas Bonnet for making my life so easy :D
+#+begin_src emacs-lisp
+  ;; Copyright (C) 2004-2014  Lucas Bonnet <lucas@rincevent.net>
+  ;; Copyright (C) 2014  Mathis Hofer <mathis@fsfe.org>
+  ;; Copyright (C) 2014-2015  Geyslan G. Bem <geyslan@gmail.com>
+
+  ;; Authors: Lucas Bonnet <lucas@rincevent.net>
+  ;;          Mathis Hofer <mathis@fsfe.org>
+  ;;          Geyslan G. Bem <geyslan@gmail.com>
+  ;; URL: https://github.com/lukhas/buffer-move/
+  ;; Version: 0.6.3
+  ;; Package-Requires: ((emacs "24.1"))
+  ;; Keywords: convenience
+
+  ;; This file is NOT part of GNU Emacs.
+
+  ;; This program is free software: you can redistribute it and/or modify
+  ;; it under the terms of the GNU General Public License as published by
+  ;; the Free Software Foundation, either version 3 of the License, or
+  ;; (at your option) any later version.
+  ;;
+  ;; This program is distributed in the hope that it will be useful,
+  ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ;; GNU General Public License for more details.
+  ;;
+  ;; You should have received a copy of the GNU General Public License
+  ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  ;;; Commentary:
+  ;;
+  ;; This file is for lazy people wanting to swap buffers without
+  ;; typing C-x b on each window. This is useful when you have :
+  ;;
+  ;; +--------------+-------------+
+  ;; |              |             |
+  ;; |    #emacs    |    #gnus    |
+  ;; |              |             |
+  ;; +--------------+-------------+
+  ;; |                            |
+  ;; |           .emacs           |
+  ;; |                            |
+  ;; +----------------------------+
+  ;;
+  ;; and you want to have :
+  ;;
+  ;; +--------------+-------------+
+  ;; |              |             |
+  ;; |    #gnus     |   .emacs    |
+  ;; |              |             |
+  ;; +--------------+-------------+
+  ;; |                            |
+  ;; |           #emacs           |
+  ;; |                            |
+  ;; +----------------------------+
+  ;;
+  ;; With buffer-move, just go in #gnus, do buf-move-left, go to #emacs
+  ;; (which now should be on top right) and do buf-move-down.
+  ;;
+  ;; To use it, simply put a (require 'buffer-move) in your ~/.emacs and
+  ;; define some keybindings. For example, i use :
+  ;;
+  ;; (global-set-key (kbd "<C-S-up>")     'buf-move-up)
+  ;; (global-set-key (kbd "<C-S-down>")   'buf-move-down)
+  ;; (global-set-key (kbd "<C-S-left>")   'buf-move-left)
+  ;; (global-set-key (kbd "<C-S-right>")  'buf-move-right)
+  ;;
+  ;; Alternatively, you may let the current window switch back to the previous
+  ;; buffer, instead of swapping the buffers of both windows. Set the
+  ;; following customization variable to 'move to activate this behavior:
+  ;;
+  ;; (setq buffer-move-behavior 'move)
+
+  ;;; Code:
+
+  (require 'windmove)
+
+  (defconst buffer-move-version "0.6.3"
+    "Version of buffer-move.el")
+
+  (defgroup buffer-move nil
+    "Swap buffers without typing C-x b on each window"
+    :group 'tools)
+
+  (defcustom buffer-move-behavior 'swap
+    "If set to 'swap (default), the buffers will be exchanged
+    (i.e. swapped), if set to 'move, the current window is switch back to the
+    previously displayed buffer (i.e. the buffer is moved)."
+    :group 'buffer-move
+    :type 'symbol)
+
+  (defcustom buffer-move-stay-after-swap nil
+    "If set to non-nil, point will stay in the current window
+    so it will not be moved when swapping buffers. This setting
+    only has effect if `buffer-move-behavior' is set to 'swap."
+    :group 'buffer-move
+    :type 'boolean)
+
+  (defun buf-move-to (direction)
+    "Helper function to move the current buffer to the window in the given
+     direction (with must be 'up, 'down', 'left or 'right). An error is
+     thrown, if no window exists in this direction."
+    (cl-flet ((window-settings (window)
+                (list (window-buffer window)
+                      (window-start window)
+                      (window-hscroll window)
+                      (window-point window)))
+              (set-window-settings (window settings)
+                (cl-destructuring-bind (buffer start hscroll point)
+                    settings
+                  (set-window-buffer window buffer)
+                  (set-window-start window start)
+                  (set-window-hscroll window hscroll)
+                  (set-window-point window point))))
+      (let* ((this-window (selected-window))
+             (this-window-settings (window-settings this-window))
+             (other-window (windmove-find-other-window direction))
+             (other-window-settings (window-settings other-window)))
+        (cond ((null other-window)
+               (error "No window in this direction"))
+              ((window-dedicated-p other-window)
+               (error "The window in this direction is dedicated"))
+              ((window-minibuffer-p other-window)
+               (error "The window in this direction is the Minibuffer")))
+        (set-window-settings other-window this-window-settings)
+        (if (eq buffer-move-behavior 'move)
+            (switch-to-prev-buffer this-window)
+          (set-window-settings this-window other-window-settings))
+        (select-window other-window))))
+
+  ;;;###autoload
+  (defun buf-move-up ()
+    "Swap the current buffer and the buffer above the split.
+     If there is no split, ie now window above the current one, an
+     error is signaled."
+    (interactive)
+    (buf-move-to 'up))
+
+  ;;;###autoload
+  (defun buf-move-down ()
+    "Swap the current buffer and the buffer under the split.
+     If there is no split, ie now window under the current one, an
+     error is signaled."
+    (interactive)
+    (buf-move-to 'down))
+
+  ;;;###autoload
+  (defun buf-move-left ()
+    "Swap the current buffer and the buffer on the left of the split.
+     If there is no split, ie now window on the left of the current
+     one, an error is signaled."
+    (interactive)
+    (buf-move-to 'left))
+
+  ;;;###autoload
+  (defun buf-move-right ()
+    "Swap the current buffer and the buffer on the right of the split.
+     If there is no split, ie now window on the right of the current
+     one, an error is signaled."
+    (interactive)
+    (buf-move-to 'right))
+
+  ;;;###autoload
+  (defun buf-move ()
+    "Begin moving the current buffer to different windows.
+
+  Use the arrow keys to move in the desired direction.  Pressing
+  any other key exits this function."
+    (interactive)
+    (let ((map (make-sparse-keymap)))
+      (dolist (x '(("<up>" . buf-move-up)
+                   ("<left>" . buf-move-left)
+                   ("<down>" . buf-move-down)
+                   ("<right>" . buf-move-right)))
+        (define-key map (read-kbd-macro (car x)) (cdr x)))
+      (set-transient-map map t)))
+
+  ;; (provide 'buffer-move)
+#+end_src
+** Dired
+#+begin_src emacs-lisp
+(require 'dired)
+(setq dired-listing-switches "-alh")
+(add-hook 'dired-mode-hook 'auto-revert-mode)
+#+end_src
+
+** Diminish
+Hides/abbreviates modeline displays. Can add :diminish to any use-package block to hide that mode in the modeline
+#+begin_src emacs-lisp
+(use-package diminish)
+#+end_src
+
+** Perspective Workspaces
+Allows multiple workspaces in emacs like i3 or any other window manager. Can have workspaces with buffers. Taken from DistroTube's config.
+
+#+begin_src emacs-lisp
+(use-package perspective
+  :custom
+  ;; NOTE! I have also set 'SCP =' to open the perspective menu.
+  ;; I'm only setting the additional binding because setting it
+  ;; helps suppress an annoying warning message.
+  (persp-mode-prefix-key (kbd "C-c M-p"))
+  :init 
+  (persp-mode)
+  :config
+  ;; Sets a file to write to when we save states
+  (setq persp-state-default-file "~/.emacs.d/sessions"))
+
+;; This will group buffers by persp-name in ibuffer.
+(add-hook 'ibuffer-hook
+          (lambda ()
+            (persp-ibuffer-set-filter-groups)
+            (unless (eq ibuffer-sorting-mode 'alphabetic)
+              (ibuffer-do-sort-by-alphabetic))))
+
+;; Automatically save perspective states to file when Emacs exits.
+(add-hook 'kill-emacs-hook #'persp-state-save)
+#+end_src
+
+** Backups
+Don't put backups in the project directory, too cluttered
+#+begin_src emacs-lisp
+  (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
+#+end_src
+
+** Set Environment Variable 
+Put anything you want on emacs' exec path here to be seen by emacs, otherwise will not be seen and won't work
+#+begin_src emacs-lisp
+(add-to-list 'exec-path "~/.local/bin")
+#+end_src
+
+* IDE Set up
+Configuration for using emacs as a IDE
+** Copilot
+As a L11 senior prompt engineer, having copilot makes life a lot easier and code a lot faster.
+
+Requires your system wide node installation is at least 22. =nvm= doesn't work as emacs uses only system wide installation. On ubuntu, you can do this by:
+#+begin_src bash
+curl -sL https://deb.nodesource.com/setup_22.x | sudo bash -
+sudo apt-get install -y nodejs
+#+end_src
+
+Then when emacs first starts, run =M-x copilot-install-server=. Log into copilot by =M-x copilot-login=.
+
+#+begin_src emacs-lisp
+(straight-use-package 'jsonrpc)
+
+;; Install f (file manipulation library)
+(straight-use-package 'f)
+
+;; Install s (string manipulation library)
+(straight-use-package 's)
+
+;; Install dash (list manipulation library)
+(straight-use-package 'dash)
+
+;; Install editorconfig
+(straight-use-package 'editorconfig)
+(editorconfig-mode 1)
+#+end_src
+
+#+begin_src emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/github-copilot")
+(require 'copilot)
+    ;; Enable in programming modes
+    (add-hook 'prog-mode-hook 'copilot-mode)
+
+    ;; Define key bindings
+    (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
+    (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion-by-word)
+
+;; (setq copilot-idle-delay 0.2)
+#+end_src
+
+** Magit
+#+begin_src emacs-lisp
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(use-package evil-magit
+  :after magit)
+#+end_src
+
+** LSP Mode
+Everything you need for any language is avaliable [[https://emacs-lsp.github.io/lsp-mode/page/installation/][here.]]
+*** Activating LSP-mode
+#+begin_src emacs-lisp
+  (use-package lsp-mode 
+    :init
+    ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+    (setq lsp-keymap-prefix "C-c l")
+    :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+           (python-mode . lsp)
+           ;; if you want which-key integration
+           (lsp-mode . lsp-enable-which-key-integration))
+    :commands lsp
+  )
+#+end_src
+
+For emacs 28+, suppress compilation warnings
+#+begin_src emacs-lisp
+;; Suppress native compilation warnings
+(setq native-comp-async-report-warnings-errors 'silent)
+#+end_src
+
+** LSP For C/C++
+I write code in C/C++ for class and for ROS.
+*** Install clangd
+clangd is a LSP server for C/C++. On Ubuntu/debian
+#+begin_src bash 
+sudo apt-get install clangd-12
+#+end_src
+
+If that’s not found, at least clangd-9 or clangd-8 should be available. Versions before 8 were part of the clang-tools package.
+
+This will install clangd as /usr/bin/clangd-12. Make it the default clangd:
+#+begin_src bash
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+#+end_src
+*** C/C++ Mode with LSP
+#+begin_src emacs-lisp
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+#+end_src
+
+** LSP for Python
+I use python for research. My most used language, must have support for a lot of stuff like virtualenv lsp support, notebook files interactive support, etc.
+*** Install elpy 
+After a new clone, don't forget to run =M-x elpy-rpc-reinstall-virtualenv=, otherwise will get sentinel error on every keypress lmao
+- also ensure your system has =python3-venv= installed
+
+#+begin_src emacs-lisp
+(use-package elpy
+  :straight t
+  :init
+  (elpy-enable))
+
+(setq lsp-pylsp-server-command "pylsp")
+(setq lsp-ruff-lsp-server-command "ruff-lsp")
+(add-hook 'python-mode-hook #'lsp-deferred)
+
+(elpy-enable)
+
+   ;; A python shell for every buffer
+(add-hook 'elpy-mode-hook (lambda () (elpy-shell-toggle-dedicated-shell 1)))
+
+   ;;(add-hook 'python-mode-hook #'python-cello-mode 1)
+   (setq python-shell-interpreter "ipython3"
+            python-shell-interpreter-args "--simple-prompt -i --pylab=qt5")
+
+   ;; Real time syntax check in python
+   (when (require 'flycheck nil t)
+         (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+         (add-hook 'elpy-mode-hook 'flycheck-mode))
+#+end_src
+
+** Python Mode
+Install the LSP server with =pip install "python-lsp-server[all]"=
+
+Python mode should be included with emacs
+#+begin_src emacs-lisp
+(use-package python-mode
+  :straight nil
+  :hook (python-mode . lsp-deferred) ;; when open python file, turn on LSP mode
+)
+
+;; (setq python-shell-interpreter "python3") ;; ensure use python3 as interpreter
+#+end_src
+
+** Company
+Text completion framework. Completion starts after type few letters. 
+
+Use M-n and M-p to select, <return> to complete or <tab> to complete the common part.
+
+Must have ran =pip install virtualenv= before for =M-x jedi:install-server= to work properly.
+
+If you ever get the error like "rpc sentinel died", means your jedi server is dead/not working properly. Usually this can be fixed with running =M-x jedi:reinstall-server=.
+#+begin_src emacs-lisp
+  (use-package company
+    :after lsp-mode
+    :hook (prog-mode . company-mode)
+    :bind (:map company-active-map
+           ("<tab>" . company-complete-selection))
+          (:map lsp-mode-map
+           ("<tab>" . company-indent-or-complete-common))
+    :custom
+    (company-minimum-prefix-length 1)
+    (company-idle-delay 0.0))
+
+  (use-package company-jedi)
+
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+
+;; company box enables a box with icons to show up during competion much like vscode completions.
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+#+end_src
+
+*** Making Eshell Usable In Remote Sessions
+#+begin_src emacs-lisp
+(defun my-eshell-init ()
+  (company-mode -1))
+
+(add-hook 'eshell-mode-hook #'my-eshell-init) ;; disable company in eshell mode
+#+end_src
+
+** Flycheck 
+Syntax checking frameworks for various languages. Basic syntax issue highlighting in code.
+
+For python, ensure python-pylint is installed. Install with pip install pylint
+
+#+begin_src emacs-lisp
+(use-package flycheck
+  :defer t
+  :diminish
+  :init (global-flycheck-mode))
+
+#+end_src
+
+** Projectile
+Project management with emacs.
+
+Install ripgrep for fast project wide grep (SPC-p-s-r). Needs rust:
+#+begin_src bash
+sudo apt-get install ripgrep
+#+end_src
+
+Keybinds mapped to SPC p as command map (in general.el section).
+#+begin_src emacs-lisp
+(use-package projectile
+  :straight t
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :init
+  ;; NOTE: Set this to the folder where you keep your Git repos!
+  (when (file-directory-p "~/Documents/Code")
+    (setq projectile-project-search-path '("~/Documents/Code")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(setq projectile-mode-line "Projectile") ;; disable modeline projectile, otherwise remote connections will have massive latency
+#+end_src
+
+Common keybinds:
+- SPC p p to switch projects
+- SPC p f to do project wide fuzzy file search 
+- SPC p s g to do project wide grep
+
+** EIN Jupyter Notebooks
+Package that allows emacs to edit and run .ipynb files and behave like wrapper around jupyter notebooks/lab.
+
+#+begin_src emacs-lisp
+(use-package ein)
+#+end_src
+
+Launch a session:
+- first start a jupyter session with:
+#+begin_src sh
+jupyter notebook
+#+end_src
+- open emacs and run the following. This will attach emacs to jupyter server you started in background
+#+begin_src sh
+M-x ein:run
+#+end_src
+- now use find the directory you want to root your jupyter session on
+- or can do M-x ein:notebooklist-open
+
+Usage:
+- Mostly works with evil keybindings. Can edit inside the cells with evil bindings
+- However, currently saving only works with C-x C-s like old emacs along with many other bindings
+- evaluate cell with M-RET
+- change cell type from code to markdown to etc. with C-c C-u ein:worksheet-change-cell-type 
+
+Should really rebind these for evil mode to space based and more like regular jupyter...
+
+Good resources to help:
+- https://tkf.github.io/emacs-ipython-notebook/
+- https://github.com/millejoh/emacs-ipython-notebook
+- https://martibosch.github.io/jupyter-emacs-universe/
+
+For Jupyter in general:
+#+begin_src sh
+pip install ipykernel
+pyenv install 3.10 # if want to use pyenv
+pyenv shell 3.10
+
+# ----------------------
+pyenv virtualenv jupyter
+pyenv activate jupyter
+# OR alternatively use venv
+python -m venv "myenv"
+source myenv/bin/activate # activate with this instead
+# if use this, deactivate with just $ deactivate
+# ----------------------
+
+# install jupyter lab in an env first
+pip install jupyterlab
+pyenv deactivate
+
+# now can create any other env 
+pyenv virtualenv tfenv 
+pyenv activate tfenv 
+pip install tensorflow # install wanted packages
+ipython kernel install --user --name tfenv # add the env as a kernel
+# now any packages installed in tfenv will be reflected in the tfenv kernel for jupyter
+#+end_src
+
+** Tramp
+#+begin_src emacs-lisp
+(setq tramp-default-method "ssh")
+#+end_src
+** ssh shortcuts
+Instead of having to =find-file= ssh:/home/..., use shortcuts to be faster!
+#+begin_src emacs-lisp
+(defun visit-remote-project-1 ()
+  (interactive)
+  (find-file "/ssh:edward@uril-1.cs.ucla.edu:~/"))
+(defun visit-remote-project-2 ()
+  (interactive)
+  (find-file "/ssh:edward@scai3.cs.ucla.edu:~/"))
+(defun visit-remote-project-3 ()
+  (interactive)
+  (find-file "/ssh:edward@scai4.cs.ucla.edu:~/"))
+
+;; ad hoc servers (lambda) go last so easier to remove/add
+(defun visit-remote-project-4 ()
+  (interactive)
+  (find-file "/ssh:u-ril@192.168.0.69:~/"))
+(defun visit-remote-project-5 ()
+  (interactive)
+  (find-file "/ssh:ubuntu@104.171.203.34:~/"))
+#+end_src
+
+* LaTex Editing
+Making emacs able to write LaTex documents with ease and allow previewing
+
+Setting up LaTex on your own machine (ubuntu for me):
+#+begin_src sh
+sudo apt install texlive-full
+#+end_src
+
+** AUCTex
+#+begin_src emacs-lisp
+(use-package auctex)
+
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+
+;; compile into PDF
+(setq TeX-PDF-mode t)
+#+end_src
+
+** Company Math
+Alternative autocompletion for LaTex using company-mode. It is also nice to display unicode math symbols in Emacs LaTeX documents which can be texed with XeTeX or LuaTeX using the unicode-math package (see company-math).
+#+begin_src emacs-lisp
+(use-package company-math)
+(defun my-latex-mode-setup ()
+  (setq-local company-backends
+              (append '((company-math-symbols-latex company-math-symbols-unicode))
+                      company-backends)))
+
+(add-hook 'LaTeX-mode-hook 'my-latex-mode-setup)
+(add-hook 'after-init-hook 'global-company-mode)
+#+end_src
+* Appearance
+** Theme
+#+begin_src emacs-lisp
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+  (load-theme 'modus-vivendi t)
+#+end_src
+
+** Minimize Clutter
+#+begin_src emacs-lisp
+  (setq visible-bell nil)
+  (menu-bar-mode -1) 
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+#+end_src
+
+** Transparent Background
+#+begin_src emacs-lisp
+  (set-frame-parameter (selected-frame) 'alpha '(85 . 85))
+  (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
+#+end_src
+
+** Relative Line Numbers
+#+begin_src emacs-lisp
+  (column-number-mode)
+  (setq display-line-numbers-type 'relative) 
+  (global-display-line-numbers-mode)
+#+end_src
+
+** Font
+#+begin_src emacs-lisp
+    ;; increase font size
+    (set-face-attribute 'default nil :height 140)
+
+    ;; (set-face-attribute 'default nil
+    ;;   :font "Ubuntu"
+    ;;   :height 120
+    ;;   :weight 'medium)
+    ;; (set-face-attribute 'variable-pitch nil
+    ;;   :font "Ubuntu"
+    ;;   :height 130
+    ;;   :weight 'medium)
+    ;; (set-face-attribute 'fixed-pitch nil
+    ;;   :font "Ubuntu"
+    ;;   :height 120
+    ;;   :weight 'medium)
+    ;; ;; Makes commented text and keywords italics.
+    ;; ;; This is working in emacsclient but not emacs.
+    ;; ;; Your font must have an italic face available.
+    ;; (set-face-attribute 'font-lock-comment-face nil
+    ;;   :slant 'italic)
+    ;; (set-face-attribute 'font-lock-keyword-face nil
+    ;;   :slant 'italic)
+
+    ;; ;; Uncomment the following line if line spacing needs adjusting.
+    ;; (setq-default line-spacing 0.12)
+
+    ;; Needed if using emacsclient. Otherwise, your fonts will be smaller than expected.
+    ;; (add-to-list 'default-frame-alist '(font . "Ubuntu"))
+  ;; changes certain keywords to symbols, such as lamda!
+   (setq global-prettify-symbols-mode t)
+#+end_src
+
+** All the Icons
+#+begin_src emacs-lisp
+(use-package all-the-icons
+    :if (display-graphic-p)
+)
+
+(use-package all-the-icons-dired
+    :hook (dired-mode . (lambda () (all-the-icons-dired-mode t)))
+)
+;; run M-x all-the-icons-install-fonts if fonts not showing up
+
+(use-package nerd-icons
+  ;; :custom
+  ;; The Nerd Font you want to use in GUI
+  ;; "Symbols Nerd Font Mono" is the default and is recommended
+  ;; but you can use any other Nerd Font if you want
+  ;; (nerd-icons-font-family "Symbols Nerd Font Mono")
+)
+;; run M-x nerd-icons-install-fonts if fonts not showing up
+#+end_src
+
+** Rainbow Delimiters
+Rainbow colored parentheses
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :hook ((emacs-lisp-mode . rainbow-delimiters-mode)
+         (clojure-mode . rainbow-delimiters-mode)))
+(rainbow-delimiters-mode)
+#+end_src
+
+** Rainbow Mode
+Display the actual color as a background for hex colors like #ffffff. prog-mode enables for all programming modes and org-mode enables for org modes.
+#+begin_src emacs-lisp
+(use-package rainbow-mode
+  :diminish
+  :hook org-mode prog-mode)
+#+end_src
+
+** Dashboard
+#+begin_src emacs-lisp
+(use-package dashboard
+  :init
+  (setq initial-buffer-choice 'dashboard-open)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-center-content t) ;; set to 't' for centered content
+  (setq dashboard-banner-logo-title "神は神の天国にいって、世界はすべて整っているよ")
+  ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
+  ;; (setq dashboard-startup-banner "~/.emacs.d/img/nerv.png")  ;; use custom image as banner
+  (setq dashboard-startup-banner "~/.emacs.d/img/guts.png") 
+  (setq dashboard-image-banner-max-height 750)   ;; max custom banner image height 
+  (setq dashboard-items '((recents . 5)
+                          ;; (agenda . 5 )
+                          (bookmarks . 3)
+                          ;; (projects . 3)
+                          (registers . 3)))
+  :custom
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                    (bookmarks . "book")))
+  :config
+  (dashboard-setup-startup-hook))
+#+end_src
+
+** Modeline
+Need nerd icons
+#+begin_src sh
+M-x nerd-icons-install-fonts
+#+end_src
+Install with command above in emacs
+#+begin_src emacs-lisp
+
+(use-package all-the-icons)
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
+(use-package nyan-mode
+  :config
+  ;; Enable animation
+  (setq nyan-animate-nyancat t)
+  ;; Set animation frame interval to 0.1 seconds (you can adjust as needed)
+  (setq nyan-animation-frame-interval 0.1)
+  ;; Set the length of the Nyan bar
+  (setq nyan-bar-length 30) ;; Adjust as needed
+  ;; Choose a cat face for the console mode (e.g., 0 for the default)
+  (setq nyan-cat-face-number 0) ;; Adjust the face number as needed
+  ;; Enable wavy trail
+  (setq nyan-wavy-trail t)
+  ;; Set minimum window width to disable Nyan Mode
+  (setq nyan-minimum-window-width 80) ;; Adjust as needed
+  ;; Start Nyan Mode
+  (nyan-mode 1)
+)
+#+end_src
+
+* Sane Defaults
+Sane defaults for emacs 
+#+begin_src emacs-lisp
+(delete-selection-mode 1)    ;; You can select text and delete it by typing.
+(electric-indent-mode -1)    ;; Turn off the weird indenting that Emacs does by default.
+(electric-pair-mode 1)       ;; Turns on automatic parens pairing
+;; The following prevents <> from auto-pairing when electric-pair-mode is on.
+;; Otherwise, org-tempo is broken when you try to <s TAB...
+(add-hook 'org-mode-hook (lambda ()
+           (setq-local electric-pair-inhibit-predicate
+                   `(lambda (c)
+                  (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
+(global-auto-revert-mode t)  ;; Automatically show changes if the file has changed
+
+(add-hook 'minibuffer-inactive-mode-hook (lambda () (auto-revert-mode -1)))
+
+(setq auto-revert-remote-files nil)
+
+(global-display-line-numbers-mode 1) ;; Display line numbers
+(global-visual-line-mode t)  ;; Enable truncated lines
+(menu-bar-mode -1)           ;; Disable the menu bar 
+(scroll-bar-mode -1)         ;; Disable the scroll bar
+(tool-bar-mode -1)           ;; Disable the tool bar
+(setq org-edit-src-content-indentation 0) ;; Set src block automatic indent to 0 instead of 2.
+#+end_src
+
+* Org Mode
+** Org-roam
+Basic configs:
+- Set the directory, I like =~/org-roam/=.
+
+#+begin_src emacs-lisp
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory "~/org-roam")
+  (org-roam-completion-everywhere t)
+  (org-roam-capture-templates
+   '(("d" "default" plain
+      "%?"
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                         "#+title: ${title}\n")
+      :unnarrowed t)
+     ("p" "paper" plain 
+      "* Summary\n%?\n\n* Key Claims\n\n* Method\n\n* Results\n\n* Strengths\n\n* Weaknesses\n\n* Connections\n"
+      :if-new (file+head "papers/${slug}.org"
+                         "#+title: ${title}\n#+filetags: :paper:\n#+date: %U\n#+ROAM_KEY: ${ref}\n#+ARXIV: \n\n")
+      :unnarrowed t)
+     ("i" "idea" plain 
+      "* Description\n%?\n\n* Motivation\n\n* Related Notes\n\n* Methods\n\n* Next Steps\n"
+      :if-new (file+head "ideas/${slug}.org"
+                         "#+title: ${title}\n#+filetags: :idea:\n#+date: %U\n")
+      :unnarrowed t)
+     ("c" "concept" plain 
+      "* Definition\n%?\n\n* Explanation\n\n* Examples\n\n* Related Concepts\n"
+      :if-new (file+head "concepts/${slug}.org"
+                         "#+title: ${title}\n#+filetags: :concept:\n#+date: %U\n")
+      :unnarrowed t)
+     ("m" "meeting" plain 
+      "* Agenda\n\n* Notes\n%?\n\n* Action Items\n"
+      :if-new (file+head "meetings/${slug}.org"
+                         "#+title: ${title}\n#+filetags: :meeting:\n#+date: %U\n")
+      :unnarrowed t)
+     ("P" "project" plain 
+      "* Methods Overview\n%?\n\n* Long Term Milestones\n\n* DO-List\n\n* Related Literature\n\n* Resources\n"
+      :if-new (file+head "projects/${slug}.org"
+                         "#+title: ${title}\n#+filetags: :project:\n#+date: %U\n")
+      :unnarrowed t)
+     ("n" "person" plain 
+      "* Affiliation\n%?\n\n* Research Interests\n\n* Areas of Expertise\n\n* Interesting Publications\n\n- [[roam:]]\n\n* Notes\n\n* Related Projects\n\n* Meetings\n"
+      :if-new (file+head "people/${slug}.org"
+                         "#+title: ${title}\n#+filetags: :person:\n#+date: %U\n")
+      :unnarrowed t)))
+  :config
+  (org-roam-setup)
+
+  ;; 1. Inbox location
+  (setq org-default-notes-file
+        (expand-file-name "refile.org" org-roam-directory))
+
+  ;; 2. Fast capture → inbox
+  (setq org-capture-templates
+        '(("r" "Refile (inbox)" entry
+           (file org-default-notes-file)
+           "* %?\n%U\n")))
+
+  ;; 3. Refile targets: inbox + all Org-roam notes
+  (defun my/org-roam-refile-targets ()
+    "Return a list of all Org files under `org-roam-directory` for `org-refile-targets`."
+    (mapcar (lambda (f) (list f :maxlevel 3))
+            (directory-files-recursively org-roam-directory "\\.org$")))
+
+  (setq org-refile-targets
+        (append
+         `((,org-default-notes-file :maxlevel . 3))
+         (my/org-roam-refile-targets)))
+
+  ;; 4. Quality-of-life refinements
+  (setq org-outline-path-complete-in-steps nil
+        org-refile-use-outline-path 'file
+        org-refile-allow-creating-parent-nodes 'confirm))
+#+end_src
+
+*** Org-roam-ui 
+Graph view for org-roam like obsidian
+
+#+begin_src emacs-lisp
+(use-package org-roam-ui
+  :straight
+    (:host github :repo "org-roam/org-roam-ui" :branch "main" :files ("*.el" "out"))
+    :after org-roam
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+    ;; :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
+#+end_src
+
+*** Org roam Insert Screenshots
+Be able to paste screenshots from clipboard into orgmode documents. When in insert mode (evil) on org mode documents, will paste image.
+
+Make sure flameshot and xclip are installed on your system:
+#+begin_src bash
+sudo apt-get install flameshot
+sudo apt-get install xclip 
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package org-download
+  :after org
+  :defer nil
+  :config
+  ;; Save into a fixed directory (we'll override per-call below)
+  (setq org-download-method 'directory
+        org-download-heading-lvl 0
+        org-download-timestamp "org_%Y%m%d-%H%M%S_"
+        org-image-actual-width 900
+
+        ;; Read PNG data from clipboard via xclip (Ubuntu)
+        org-download-screenshot-method
+        "xclip -selection clipboard -t image/png -o > %s")
+
+  (defun my/org-roam-insert-clipboard-image ()
+    "Save clipboard image into `org-roam-directory`/img and insert link."
+    (interactive)
+    (unless (boundp 'org-roam-directory)
+      (user-error "org-roam-directory is not set"))
+    (let* ((img-dir (expand-file-name "img" org-roam-directory)))
+      (unless (file-directory-p img-dir)
+        (make-directory img-dir t))
+      ;; Temporarily override image dir so org-download writes into Roam img/
+      (let ((org-download-image-dir img-dir))
+        (org-download-screenshot))))
+
+  ;; Evil: in ORG buffers, in *insert* state, C-v inserts clipboard image
+  (with-eval-after-load 'evil
+    (evil-define-key 'insert org-mode-map
+      (kbd "C-v") #'my/org-roam-insert-clipboard-image)))
+#+end_src
+
+** TOC
+#+begin_src emacs-lisp
+  (use-package toc-org
+      :commands toc-org-enable
+      :init (add-hook `org-mode-hook `toc-org-enable)
+  )
+#+end_src
+
+** Org Bullets
+Have pretty org mode bullets instead of just asteriks
+#+begin_src emacs-lisp
+  (add-hook `org-mode-hook `org-indent-mode)
+  (use-package org-bullets)
+  (add-hook `org-mode-hook (lambda () (org-bullets-mode 1)))
+#+end_src
+
+** Highlight TODO
+#+begin_src emacs-lisp
+(use-package hl-todo
+  :hook ((org-mode . hl-todo-mode)
+         (prog-mode . hl-todo-mode))
+  :config
+  (setq hl-todo-highlight-punctuation ":"
+        hl-todo-keyword-faces
+        `(("TODO"       warning bold)
+          ("FIXME"      error bold)
+          ("HACK"       font-lock-constant-face bold)
+          ("REVIEW"     font-lock-keyword-face bold)
+          ("NOTE"       success bold)
+          ("DEPRECATED" font-lock-doc-face bold))))
+#+end_src
+
+** Quick Block Creation with Org Tempo
+Org-tempo is a package that allows for '<s' followed by TAB to expand to a begin_src tag.  Other expansions available include:
+
+| Typing the below + TAB | Expands to ...                          |
+|------------------------+-----------------------------------------|
+| <a                     | '#+BEGIN_EXPORT ascii' … '#+END_EXPORT  |
+| <c                     | '#+BEGIN_CENTER' … '#+END_CENTER'       |
+| <C                     | '#+BEGIN_COMMENT' … '#+END_COMMENT'     |
+| <e                     | '#+BEGIN_EXAMPLE' … '#+END_EXAMPLE'     |
+| <E                     | '#+BEGIN_EXPORT' … '#+END_EXPORT'       |
+| <h                     | '#+BEGIN_EXPORT html' … '#+END_EXPORT'  |
+| <l                     | '#+BEGIN_EXPORT latex' … '#+END_EXPORT' |
+| <q                     | '#+BEGIN_QUOTE' … '#+END_QUOTE'         |
+| <s                     | '#+BEGIN_SRC' … '#+END_SRC'             |
+| <v                     | '#+BEGIN_VERSE' … '#+END_VERSE'         |
+
+From DistroTube's config
+
+#+begin_src emacs-lisp
+(require `org-tempo)
+#+end_src
+
+* Key Bindings
+** General.el Keybindings
+#+begin_src emacs-lisp
+(use-package general
+  :config
+  (general-evil-setup t)
+
+  (nvmap :states '(normal visual) :keymaps 'override :prefix "SPC"
+    ;; buffers
+    ","   '(ibuffer :which-key "ibuffer")
+    "b c"   '(clone-indirect-buffer-other-window :which-key "clone indirect buffer other window")
+    "b d"   '(kill-current-buffer :which-key "kill current buffer")
+    "b n"   '(next-buffer :which-key "next buffer")
+    "b p"   '(previous-buffer :which-key "previous buffer")
+    "b B"   '(ibuffer-list-buffers :which-key "ibuffer list buffers")
+    "b D"   '(kill-buffer :which-key "kill buffer")
+    ;; search 
+    "/" '(swiper :wk "swiper search")
+    ;; comment 
+    "c c" '(comment-line :wk "comment lines")
+    ;; help 
+    "h" '(:ignore t :wk "help")
+    "hf" '(describe-function :wk "describe function") ;; if working in elisp ONLY file
+    "hv" '(describe-variable :wk "describe variable")
+    "h r r" '(reload-init-file :wk "reload emacs config")
+    ;; themes 
+    "t"  '(:ignore t :wk "toggles")
+    "tt" '(counsel-load-theme :wk "choose theme") ;; change theme easily
+    ;; file navigation 
+    "."     '(find-file :which-key "find file")
+    "ff"   '(find-file :which-key "find file")
+    "fr"   '(counsel-recentf :which-key "recent files")
+    "fs"   '(save-buffer :which-key "save file")
+    "fu"   '(sudo-edit-find-file :which-key "sudo find file")
+    "fy"   '(dt/show-and-copy-buffer-path :which-key "yank file path")
+    "fC"   '(copy-file :which-key "copy file")
+    "fD"   '(delete-file :which-key "delete file")
+    "fR"   '(rename-file :which-key "rename file")
+    "fS"   '(write-file :which-key "save file as...")
+    "fU"   '(sudo-edit :which-key "sudo edit file")
+    ;; windows 
+    "wv" '(evil-window-vsplit :wk "split-window-right")
+    "ws" '(evil-window-split  :wk "split-window-below")
+    "wd" '(evil-window-delete :wk "delete-window")
+    "wD" '(delete-other-windows :wk "delete-other-windows")
+    ;; resize windows
+    "w[" '(evil-window-decrease-width :wk "decrease-window-width")
+    "w]" '(evil-window-increase-width :wk "increase-window-width")
+    "w-" '(evil-window-decrease-height :wk "decrease-window-height")
+    "w=" '(evil-window-increase-height :wk "increase-window-height")
+    ;; navigation 
+    "wh" '(evil-window-left :wk "windmove-left") ;; vim like window movement
+    "wj" '(evil-window-down :wk "windmove-down")
+    "wk" '(evil-window-up :wk "windmove-up")
+    "wl" '(evil-window-right :wk "windmove-right")
+    "ww" '(evil-window-next :wk "windmove-next")
+    ;; window move
+    "wH" '(buf-move-left :wk "move window left") ;; vim like window movement
+    "wJ" '(buf-move-down :wk "move window down")
+    "wK" '(buf-move-up :wk "move window up")
+    "wL" '(buf-move-right :wk "windmove-right")
+    ;; terminal
+    "ot" '(eshell-toggle :wk "toggle eshell")
+    "oT" '(eshell-new :wk "open new eshell")
+    ;; perspective.el workspaces
+    "TAB" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
+    ;; projectile
+    "p" `(projectile-command-map :wk "Projectile command map")
+    ;; AUCTex bindings
+    ;; previewing 
+    "lpp" '(preview-buffer :wk "preview current latex buffer") 
+    "lpa" '(preview-at-point :wk "toggle latex preview at point") 
+    "lpd" '(preview-document :wk "preview current latex document") 
+    ;; compiling latex
+    "lca" '(TeX-command-run-all :wk "compile current document") 
+    ;; speedbar "file tree"
+    "sb"  '(speedbar :wk "toggle speedbar file summary/tree") 
+    ;; ssh
+    "r1"  '(visit-remote-project-1 :wk "connect to the server 1") 
+    "r2"  '(visit-remote-project-2 :wk "connect to the server 2") 
+    "r3"  '(visit-remote-project-3 :wk "connect to the server 3") 
+    "r4"  '(visit-remote-project-4 :wk "connect to the server 4") 
+    "r5"  '(visit-remote-project-5 :wk "connect to the server 5") 
+    ;; org
+    "oc"  '(org-capture :wk "org capture")
+    ;; org roam
+    "of"  '(org-roam-node-find :wk "org roam find node")
+    "ol"  '(org-roam-buffer-toggle :wk "org roam buffer toggle")
+    ;; org roam ui
+    "og"  '(org-roam-ui-mode :wk "org roam ui graph")
+    )
+  )
+
+(defun reload-init-file()
+  (interactive)
+  (load-file user-init-file)
+  (load-file user-init-file)
+  )
+#+end_src
+
+** Misc Non-evil Keybindings
+#+begin_src emacs-lisp
+;; regular org
+;; C-c C-l inserts link
+(global-set-key (kbd "C-SPC") 'completion-at-point)
+;; org-roam
+(global-set-key (kbd "C-a") 'org-roam-node-insert)
+;; refile C-c C-w
+#+end_src
+
+** Zoom
+For zooming in and out on buffers
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-=") 'text-scale-increase)
+  (global-set-key (kbd "C--") 'text-scale-decrease)
+  (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+  (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+#+end_src
+
+** Minibuffer Escape
+Default emacs requires 3 times hit ESC to quit minibuffer. Here we bind single press of escape to quit minibuffer
+#+begin_src emacs-lisp
+(global-set-key [escape] `keyboard-escape-quit)
+#+end_src
+
+* HTML Viewing/Hosting
+Be able to preview HTML files/websites for my personal website directly by hosting the files on local machine and be able to pull up on a browser. Also makes local changes to files immediately visible in the hosted website.
+
+#+begin_src emacs-lisp
+(use-package simple-httpd
+  :ensure t)
+#+end_src
+

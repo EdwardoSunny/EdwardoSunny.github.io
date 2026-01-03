@@ -20,7 +20,7 @@
 
     </br></br>
     
-    During my time working on agents and reasoning for finance applications, I co-founded the opensource research community <a href="https://tauric.ai/">Tauric Research</a> with my amazing mentor <a href="https://yijia-xiao.com/">Yijia Xiao</a>. I was named a <a href="https://www.cs.ucla.edu/sophomore-cs-student-earns-2025-goldwater-scholarship/">Goldwater Scholar</a> in 2025. </p> 
+    During my time working on agents and reasoning for finance applications, I co-founded the opensource research community <a href="https://github.com/TauricResearch">Tauric Research</a> with my amazing mentor <a href="https://yijia-xiao.com/">Yijia Xiao</a>. I was named a <a href="https://www.cs.ucla.edu/sophomore-cs-student-earns-2025-goldwater-scholarship/">Goldwater Scholar</a> in 2025. </p> 
 
 
     <p class="subtle">This site hosts my writings, research, and ways to get in touch.</p>

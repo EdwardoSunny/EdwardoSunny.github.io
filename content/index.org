@@ -16,7 +16,13 @@
 <section class="hero">
   <img src="./assets/me.jpeg" alt="Portrait" />
   <div>
-    <p class="intro">I am a third-year computer science student at UCLA. I have worked on multimodal LLMs, reasoning, and agents with applications in biology, finance, and robotics advised by <a href="https://web.cs.ucla.edu/~weiwang/">Wei Wang</a> and <a href="https://yuchencui.cc/">Yuchen Cui</a>. I was named a <a href="https://www.cs.ucla.edu/sophomore-cs-student-earns-2025-goldwater-scholarship/">Goldwater Scholar</a> in 2025. </p> 
+    <p class="intro">I am a third-year computer science student at UCLA. I have worked on multimodal LLMs, reasoning, and agents with applications in biology, finance, and robotics advised by <a href="https://web.cs.ucla.edu/~weiwang/">Wei Wang</a> and <a href="https://yuchencui.cc/">Yuchen Cui</a>. I also actively collaborate with <a href="https://yuchenlwu.github.io/"> Yuchen Wu</a> from the University of Washington and <a href="https://jd92.wang/">Jindong Wang</a> at William & Mary.
+
+    </br></br>
+    
+    During my time working on agents and reasoning for finance applications, I co-founded the opensource research community <a href="https://tauric.ai/">Tauric Research</a> with my amazing mentor <a href="https://yijia-xiao.com/">Yijia Xiao</a>. I was named a <a href="https://www.cs.ucla.edu/sophomore-cs-student-earns-2025-goldwater-scholarship/">Goldwater Scholar</a> in 2025. </p> 
+
+
     <p class="subtle">This site hosts my writings, research, and ways to get in touch.</p>
   </div>
 </section>
@@ -27,19 +33,20 @@
 #+BEGIN_EXPORT html
 <div class="paper-list">
   <article class="paper-item">
-    <img src="https://placehold.co/280x200" alt="Paper cover placeholder" />
     <div>
-      <h3 class="paper-title">Highlighted Paper Title</h3>
-      <p class="paper-meta">Venue, Year</p>
-      <p class="paper-blurb">Short blurb about the contribution, methods, or key findings.</p>
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2505.18882">Personalized Safety in LLMs: A Benchmark and A Planning-Based Agent Approach</a></h3>
+      <p class="paper-authors">Yuchen Wu, <strong>Edward Sun</strong>, Kaijie Zhu, Jianxun Lian, Jose Hernandez-Orallo, Aylin Caliskan, Jindong Wang</p>
+      <p class="paper-meta">NeurIPS 2025</p>
+      <p class="paper-blurb">Introduced the need to study personalized safety in LLMs. Argued that alignment should not be purely global, but tailored to a user's background since risk profiles vary across users. Showed where current models fall short, and introduced an inference-time mitigation approach using LLM-guided Monte Carlo Tree Search.</p>
     </div>
   </article>
+
   <article class="paper-item">
-    <img src="https://placehold.co/280x200" alt="Paper cover placeholder" />
     <div>
-      <h3 class="paper-title">Another Highlighted Paper</h3>
-      <p class="paper-meta">Venue, Year</p>
-      <p class="paper-blurb">Short blurb about why this work matters or what it enables.</p>
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2412.20138">TradingAgents: Multi-Agents LLM Financial Trading Framework</a></h3>
+      <p class="paper-authors">Yijia Xiao, <strong>Edward Sun</strong>, Di Luo, Wei Wang</p>
+      <p class="paper-meta">MARW@AAAI 2025 <span class="badge">Oral</span></p>
+      <p class="paper-blurb">A multi-agent LLM framework for financial trading, with agents crawling technical, news, sentiment, and more to make a trading decision. <a href="https://github.com/TauricResearch/TradingAgents">GitHub (27k stars)</a></p>
     </div>
   </article>
 </div>

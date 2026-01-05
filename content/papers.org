@@ -46,8 +46,9 @@
   <article class="paper-item">
     <div>
       <h3 class="paper-title"><a href="https://dl.acm.org/doi/abs/10.1145/3701716.3717853">Enhancing Product Search Interfaces with Sketch-Guided Diffusion and Language Agents</a></h3>
+
       <p class="paper-authors"><strong>Edward Sun</strong></p>
-      <p class="paper-meta">WWW '25: Companion Proceedings of the ACM on Web Conference 2025</p>
+      <p class="paper-meta">WWW '25: Companion Proceedings of the ACM on Web Conference 2025 <span class="badge">Spotlight</span></p>
       <p class="paper-blurb">An agent that enables interactive product search by combining freehand sketches, diffusion-based visual refinement, and a conversational language agent with memory. The framework transforms rough user drawings into semantically meaningful visual queries and iteratively refines results through dialogue, then performs vector-based embedding search over a product index.</p>
     </div>
   </article>
@@ -66,13 +67,13 @@
       <h3 class="paper-title"><a href="https://arxiv.org/abs/2412.20138">TradingAgents: Multi-Agents LLM Financial Trading Framework</a></h3>
       <p class="paper-authors">Y Xiao, <strong>Edward Sun</strong>, D Luo, W Wang</p>
       <p class="paper-meta">Multi-Agent AI in the Real World Workshop, AAAI-2025 <span class="badge">Oral</span></p>
-      <p class="paper-blurb">A multi-agent LLM framework for financial trading, with agents crawling technical, news, sentiment, and more to make a trading decision. <a href="https://github.com/TauricResearch/TradingAgents">GitHub (27k stars)</p>
+      <p class="paper-blurb">A multi-agent LLM framework for financial trading, with agents crawling technical, news, sentiment, and more to make a trading decision. <a href="https://github.com/TauricResearch/TradingAgents">GitHub (27k stars)</a></p>
     </div>
   </article>
 
   <article class="paper-item">
     <div>
-      <h3 class="paper-title"><a href="">CurriculumAgents: Automated Multi-Agent Lesson Design</a></h3>
+      <h3 class="paper-title">CurriculumAgents: Automated Multi-Agent Lesson Design</h3>
       <p class="paper-authors"><strong>Edward Sun</strong>, Y Xiao, W Wang</p>
       <p class="paper-meta">AI for Education Workshop, AAAI-2025</p>
       <p class="paper-blurb">Educational support that uses modified STORM-style research to conduct deep, topic-focused analysis and produce highly detailed long-form content. The output is organized into lesson plans, lessons and slides, practice problems, and practice tests, enabling full curriculum development and teaching preparation automation.</p>
@@ -96,7 +97,7 @@
 
   <article class="paper-item">
     <div>
-      <h3 class="paper-title"><a href="https://ieeexplore.ieee.org/abstract/document/10927434">CondDG: Enhancing End-to-End Navigation in AdverseWeather with Conditional Diffusion Synthetic Data</a></h3>
+      <h3 class="paper-title"><a href="https://ieeexplore.ieee.org/abstract/document/10927434">CondDG: Enhancing End-to-End Navigation in Adverse Weather with Conditional Diffusion Synthetic Data</a></h3>
       <p class="paper-authors"><strong>Edward Sun</strong></p>
       <p class="paper-meta">Proceeding IEEE International Conference on Control and Robots (ICCR)</p>
       <p class="paper-blurb">Used diffusion models to perform weather-condition class balancing (especially in extreme, edge case weather conditions), thereby improving robustness to out-of-distribution (OOD) conditions in self-driving datasets and applications.</p>
@@ -105,7 +106,7 @@
 
   <article class="paper-item">
     <div>
-      <h3 class="paper-title"><a href="">Enhancing Post-Visit Patient Access to Care with Multimodal Large Language Models</a></h3>
+      <h3 class="paper-title">Enhancing Post-Visit Patient Access to Care with Multimodal Large Language Models</h3>
       <p class="paper-authors"><strong>Edward Sun</strong></p>
       <p class="paper-meta">IEEE/EMBS International Conference on Biomedical and Health Informatics</p>
       <p class="paper-blurb">An agent that uses patient–doctor visit recordings not only to generate clinical notes for physicians, but also to support patients at home by reasoning over visit interactions and post-visit needs.</p>
@@ -189,7 +190,7 @@
 
   <article class="paper-item">
     <div>
-      <h3 class="paper-title"><a href="">A Novel Ultrasound Beamformer with the Align-Peak-Response for Flexible Array Transducers</a></h3>
+      <h3 class="paper-title">A Novel Ultrasound Beamformer with the Align-Peak-Response for Flexible Array Transducers</h3>
       <p class="paper-authors">Z Feng, <strong>Edward Sun</strong>, D China, X Huang, H Hooshangnejad, E Gonzalez, M Bell, et al.</p>
       <p class="paper-meta">Medical Physics 49 (6), E298-E298</p>
       <p class="paper-blurb">A novel beamforming technique for flexible ultrasound array transducers that relies on an auxiliary structure with highly reflective markers for calibration. The reflected signals provide reference peaks that are aligned to compensate for array deformation and achieve effective beam formation.</p>

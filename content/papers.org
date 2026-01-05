@@ -18,16 +18,16 @@
 <div class="paper-list">
   <article class="paper-item">
     <div>
-      <h3 class="paper-title"><a href="https://pubmed.ncbi.nlm.nih.gov/41177243/">Scalable scientific interest profiling using large language models</a></h3>
-      <p class="paper-authors">Y Liang, G Zhang, <strong>Edward Sun</strong>, B Idnay, Y Fang, F Chen, C Ta, Y Peng, C Weng</p>
-      <p class="paper-meta">Journal of Biomedical Informatics</p>
-      <p class="paper-blurb">Propose a scalable LLM-based pipeline for automatically generating researcher interest profiles from PubMed, addressing the prevalence of outdated, incomplete, and inaccurately scraped online profiles that hinder expert discovery and collaboration. We compare MeSH-term–based generation with abstract-based summarization, introduce a TF-IDF–KL divergence metric to analyze semantic differences from human-written profiles, and show that despite low lexical overlap, semantic similarity is moderate. Human evaluations favor MeSH-based profiles for readability, demonstrating the feasibility of automated researcher profiling at scale.</p>
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2505.18882">Personalized Safety in LLMs: A Benchmark and A Planning-Based Agent Approach</a></h3>
+      <p class="paper-authors">Y Wu, <strong>Edward Sun</strong>, K Zhu, J Lian, J Hernandez-Orallo, A Caliskan, J Wang</p>
+      <p class="paper-meta">Advances in Neural Information Processing Systems 39</p>
+      <p class="paper-blurb">Introduced the need to study personalized safety in LLMs. Argued that alignment should not be purely global, but tailored to a user's background since risk profiles vary across users. Showed where current models fall short, and introduced an inference-time mitigation approach using LLM-guided Monte Carlo Tree Search.</p>
     </div>
   </article>
 
   <article class="paper-item">
     <div>
-      <h3 class="paper-title"><a href="https://arxiv.org/abs/2509.11420">Trading-R1: Financial trading with llm reasoning via reinforcement learning</a></h3>
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2509.11420">Trading-R1: Financial trading with LLM reasoning via reinforcement learning</a></h3>
       <p class="paper-authors">Y Xiao, <strong>Edward Sun</strong>, T Chen, F Wu, D Luo, W Wang</p>
       <p class="paper-meta">arXiv preprint arXiv:2509.11420</p>
       <p class="paper-blurb">Trading-R1 is an RL-trained reasoning LLM that transforms heterogeneous financial signals into structured, auditable investment theses and volatility-aware trade ratings by learning multi-perspective financial reasoning through reverse chain-of-thought distillation and an easy-to-hard RL curriculum, achieving superior risk-adjusted backtest performance over generic instruction-following and reasoning models.</p>
@@ -36,10 +36,10 @@
 
   <article class="paper-item">
     <div>
-      <h3 class="paper-title"><a href="https://arxiv.org/abs/2505.18882">Personalized Safety in LLMs: A Benchmark and A Planning-Based Agent Approach</a></h3>
-      <p class="paper-authors">Y Wu, <strong>Edward Sun</strong>, K Zhu, J Lian, J Hernandez-Orallo, A Caliskan, J Wang</p>
-      <p class="paper-meta">Advances in Neural Information Processing Systems 39</p>
-      <p class="paper-blurb">Introduced the need to study personalized safety in LLMs. Argued that alignment should not be purely global, but tailored to a user's background since risk profiles vary across users. Showed where current models fall short, and introduced an inference-time mitigation approach using LLM-guided Monte Carlo Tree Search.</p>
+      <h3 class="paper-title"><a href="https://pubmed.ncbi.nlm.nih.gov/41177243/">Scalable scientific interest profiling using large language models</a></h3>
+      <p class="paper-authors">Y Liang, G Zhang, <strong>Edward Sun</strong>, B Idnay, Y Fang, F Chen, C Ta, Y Peng, C Weng</p>
+      <p class="paper-meta">Journal of Biomedical Informatics</p>
+      <p class="paper-blurb">Propose a scalable LLM-based pipeline for automatically generating researcher interest profiles from PubMed, addressing the prevalence of outdated, incomplete, and inaccurately scraped online profiles that hinder expert discovery and collaboration. We compare MeSH-term–based generation with abstract-based summarization, introduce a TF-IDF–KL divergence metric to analyze semantic differences from human-written profiles, and show that despite low lexical overlap, semantic similarity is moderate. Human evaluations favor MeSH-based profiles for readability, demonstrating the feasibility of automated researcher profiling at scale.</p>
     </div>
   </article>
 

@@ -16,7 +16,7 @@
 <section class="hero">
   <img src="./assets/me.jpeg" alt="Portrait" />
   <div>
-    <p class="intro">I am a third-year computer science student at UCLA. I work closely with <a href="https://yijia-xiao.com/">Yijia Xiao</a> and I am advised by <a href="https://web.cs.ucla.edu/~weiwang/">Wei Wang</a> and <a href="https://yuchencui.cc/">Professor Yuchen Cui</a>. I also actively collaborate with <a href="https://yuchenlwu.github.io/">Yuchen Wu</a> from the University of Washington, and work jointly with <a href="https://jd92.wang/">Professor Jindong Wang</a> at William &amp; Mary.
+    <p class="intro">I am a third-year computer science student at UCLA. I work closely with <a href="https://yijia-xiao.com/">Yijia Xiao</a> and I am advised by <a href="https://web.cs.ucla.edu/~weiwang/">Professor Wei Wang</a> and <a href="https://yuchencui.cc/">Professor Yuchen Cui</a>. I also actively collaborate with <a href="https://yuchenlwu.github.io/">Yuchen Wu</a> from the University of Washington, and work jointly with <a href="https://jd92.wang/">Professor Jindong Wang</a> at William &amp; Mary.
 
     </br></br>
 

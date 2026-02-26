@@ -137,6 +137,7 @@
       <p class="paper-authors">Y Xiao*, <strong>Edward Sun*</strong>, T Liu, W Wang</p>
       <p class="paper-meta">arXiv preprint arXiv:2407.04973</p>
       <p class="paper-blurb">A benchmark for evaluating logical reasoning in multimodal large language models within visual contexts. The dataset pairs images with carefully designed logic questions that require models to integrate visual perception and abstract reasoning, going beyond recognition or captioning.</p>
+      <p class="paper-meta">Featured in <a href="https://huggingface.co/collections/BytedanceDouyinContent/sail-vl2">ByteDance SAIL-VL2</a></p>
     </div>
   </article>
 

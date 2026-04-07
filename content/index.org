@@ -20,7 +20,7 @@
 
     </br></br>
 
-    I am interested in <b>safety, robustness, and interpretability</b> of foundational models and their applications. I am currently a <a href="https://sparai.org/">SPAR research fellow</a> working on learning interpretable language model updates advised by <a href="https://aaronmueller.github.io/">Professor Aaron Mueller</a>. In my past, I have worked on <b>multimodal large language models, reasoning, and agentic systems</b>, with applications in biology, finance, and robotics. During my time working on agents and reasoning for finance applications, I co-founded the opensource research community <a href="https://github.com/TauricResearch">Tauric Research</a> with my amazing mentor <a href="https://yijia-xiao.com/">Yijia Xiao</a>.
+    I am interested in <b>safety, robustness, and interpretability</b> of foundational models and their applications. This summer, I will be working with <a href="https://www.anthropic.com/research/team/alignment">Anthropic</a> as a <a href="https://www.matsprogram.org/">MATS</a> scholar on alignment and safety. I am currently a <a href="https://sparai.org/">SPAR research fellow</a> working on learning interpretable language model updates advised by <a href="https://aaronmueller.github.io/">Professor Aaron Mueller</a>. In my past, I have worked on <b>multimodal large language models, reasoning, and agentic systems</b>, with applications in biology, finance, and robotics. During my time working on agents and reasoning for finance applications, I co-founded the opensource research community <a href="https://github.com/TauricResearch">Tauric Research</a> with my amazing mentor <a href="https://yijia-xiao.com/">Yijia Xiao</a>.
 
     </br></br>
 

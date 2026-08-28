@@ -12,6 +12,21 @@
 </header>
 #+END_EXPORT
 
+* 2026
+
+#+BEGIN_EXPORT html
+<div class="paper-list">
+  <article class="paper-item">
+    <div>
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2608.22149">Meta-Ctrl: Guaranteed Plan Generation by Decoupling Syntactic and Semantic Constraints</a></h3>
+      <p class="paper-authors">G Yidou-Weng*, <strong>Edward Sun*</strong>, T Ma, MA Dogan, B Wang, A Peng, G Van den Broeck, Y Cui</p>
+      <p class="paper-meta">arXiv preprint arXiv:2608.22149</p>
+      <p class="paper-blurb">A constrained-decoding framework that guarantees LLM-generated robot plans satisfy syntactic and semantic constraints while preserving the base LM's plan quality. Meta-Ctrl introduces meta-tokens—a compact vocabulary of grounded actions—enforcing syntax at the token level and semantics (preconditions, goals, ordering) at the action level, an exact factorization that cuts constrained-decoding memory from over 107 TB to under 2 GB. Lifts small open-weight LMs above frontier models like GPT-4o and o1-preview on embodied planning benchmarks, and is demonstrated on a real tabletop robot. <a href="https://metactrlg.github.io/">Project page</a></p>
+    </div>
+  </article>
+</div>
+#+END_EXPORT
+
 * 2025
 
 #+BEGIN_EXPORT html

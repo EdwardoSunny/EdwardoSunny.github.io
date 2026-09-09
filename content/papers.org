@@ -18,6 +18,15 @@
 <div class="paper-list">
   <article class="paper-item">
     <div>
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2609.04281">When Seeing Overrides Knowing: Visual Dominance and Deferral-Based Method for Personalized Safety in VLMs</a></h3>
+      <p class="paper-authors"><strong>Edward Sun</strong>, Y Wu, Z Ma, EH Jiang, Y Xiao, X Yi, R Krishna, W Wang, J Wang, A Caliskan</p>
+      <p class="paper-meta">Conference on Language Modeling (COLM) 2026</p>
+      <p class="paper-blurb">Studies personalized safety in vision-language models, where a generally reasonable response may be unsafe for a specific user whose medical, emotional, or situational context is hidden. Introduces MPS-Bench, a benchmark of 5,181 scenarios from 584 real-world images across 12 high-risk domains, and finds frontier VLMs almost always answer directly (86–99%) instead of seeking missing context. Identifies visual dominance—visual affect enters the text stream in early layers and suppresses textual risk signals during fusion—and proposes PRISM, a lightweight input monitor using bidirectional cross-modal modulation to predict when a query requires deferral, achieving 0.978 AUC and dominating the safety-utility Pareto frontier.</p>
+    </div>
+  </article>
+
+  <article class="paper-item">
+    <div>
       <h3 class="paper-title"><a href="https://arxiv.org/abs/2608.22149">Meta-Ctrl: Guaranteed Plan Generation by Decoupling Syntactic and Semantic Constraints</a></h3>
       <p class="paper-authors">G Yidou-Weng*, <strong>Edward Sun*</strong>, T Ma, MA Dogan, B Wang, A Peng, G Van den Broeck, Y Cui</p>
       <p class="paper-meta">arXiv preprint arXiv:2608.22149</p>

@@ -56,6 +56,15 @@
 
   <article class="paper-item">
     <div>
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2609.14156">Visible Touch: Rendering Contact for Visuomotor Policies</a></h3>
+      <p class="paper-authors">Metin Alp Dogan*, <strong>Edward Sun*</strong>, Feng Xu*, Daniel Wu, Allen Peng, Dennis Hong, Yuchen Cui</p>
+      <p class="paper-meta">CoRL 2026</p>
+      <p class="paper-blurb">Integrates contact information into visuomotor policies without specialized tactile encoders or architectural changes. The key insight is that the bottleneck is not the contact signal itself but how it is delivered: rendering contact into the same spatial frame the policy already attends to makes it directly usable by any image-conditioned policy, including pretrained VLAs. Paired with an open-source, low-cost magnetic contact sensor fabricated from off-the-shelf parts via a parametric CAD-to-mold pipeline. On LIBERO, Visible Touch improves BC-Transformer success by 15.7 points and miniVLA by 25 points on average; fine-tuning π<sub>0.5</sub> on four real-world contact-rich tasks gains 30 points. <a href="https://visibletouch.github.io/">Project page</a></p>
+    </div>
+  </article>
+
+  <article class="paper-item">
+    <div>
       <h3 class="paper-title"><a href="https://arxiv.org/abs/2505.18882">Personalized Safety in LLMs: A Benchmark and A Planning-Based Agent Approach</a></h3>
       <p class="paper-authors">Yuchen Wu, <strong>Edward Sun</strong>, Kaijie Zhu, Jianxun Lian, Jose Hernandez-Orallo, Aylin Caliskan, Jindong Wang</p>
       <p class="paper-meta">NeurIPS 2025</p>

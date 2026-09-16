@@ -16,7 +16,7 @@
 <section class="hero">
   <img src="./assets/me.jpeg" alt="Portrait" />
   <div>
-    <p class="intro">I am a third-year computer science student at UCLA. Most recently, I was a Safety Research Fellow at <a href="https://www.anthropic.com/research">Anthropic</a>, where I worked on robotics alignment and safety.</p>
+    <p class="intro">I am a third-year computer science student at UCLA. Most recently, I was a Safety Research Fellow at <a href="https://www.anthropic.com/research">A\</a>, where I worked on robotics alignment and safety.</p>
 
     <p class="intro">At UCLA, I work closely with <a href="https://yijia-xiao.com/">Yijia Xiao</a> and am advised by <a href="https://web.cs.ucla.edu/~weiwang/">Professor Wei Wang</a> and <a href="https://yuchencui.cc/">Professor Yuchen Cui</a>. I also collaborate with <a href="https://yuchenlwu.github.io/">Yuchen Wu</a> at the University of Washington and <a href="https://jd92.wang/">Professor Jindong Wang</a> at William &amp; Mary.</p>
 

@@ -100,7 +100,7 @@
       <h3 class="paper-title"><a href="https://arxiv.org/abs/2412.20138">TradingAgents: Multi-Agents LLM Financial Trading Framework</a></h3>
       <p class="paper-authors">Y Xiao, <strong>Edward Sun</strong>, D Luo, W Wang</p>
       <p class="paper-meta">Multi-Agent AI in the Real World Workshop, AAAI-2025 <span class="badge">Oral</span></p>
-      <p class="paper-blurb">A multi-agent LLM framework for financial trading, with agents crawling technical, news, sentiment, and more to make a trading decision. <a href="https://github.com/TauricResearch/TradingAgents">GitHub (27k stars)</a></p>
+      <p class="paper-blurb">A multi-agent LLM framework for financial trading, with agents crawling technical, news, sentiment, and more to make a trading decision. <a href="https://github.com/TauricResearch/TradingAgents">GitHub (100k stars)</a></p>
     </div>
   </article>
 

@@ -23,9 +23,6 @@
     <p class="intro">I am interested in the <b>safety, robustness, and interpretability</b> of foundation models, and in <b>robotics</b>: making embodied systems more capable, reliable, and safe in real-world deployment. Previously, I was a <a href="https://sparai.org/">SPAR research fellow</a> advised by <a href="https://aaronmueller.github.io/">Professor Aaron Mueller</a>, and I have worked on <b>multimodal LLMs, reasoning, and agentic systems</b> with applications in biology, finance, and robotics. Along the way, I co-founded the open-source research community <a href="https://github.com/TauricResearch">Tauric Research</a> with <a href="https://yijia-xiao.com/">Yijia Xiao</a>.</p>
 
     <p class="intro">I was named a <a href="https://www.cs.ucla.edu/sophomore-cs-student-earns-2025-goldwater-scholarship/">Goldwater Scholar</a> in 2025.</p>
-
-
-    <p class="subtle">This site hosts my writings, research, and ways to get in touch.</p>
   </div>
 </section>
 #+END_EXPORT

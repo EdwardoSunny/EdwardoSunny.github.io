@@ -27,7 +27,7 @@
   <div class="hero-body">
     <p class="intro">I am a fourth-year computer science student at UCLA. Most recently, I was a Safety Research Fellow at <a href="https://www.anthropic.com/research">A\</a>, where I worked on robotics alignment and safety.</p>
 
-    <p class="intro">At UCLA, I work closely with <a href="https://yijia-xiao.com/">Yijia Xiao</a> and am advised by <a href="https://web.cs.ucla.edu/~weiwang/">Professor Wei Wang</a> and <a href="https://yuchencui.cc/">Professor Yuchen Cui</a>. I also collaborate with <a href="https://yuchenlwu.github.io/">Yuchen Wu</a> at the University of Washington and <a href="https://jd92.wang/">Professor Jindong Wang</a> at William &amp; Mary.</p>
+    <p class="intro">At UCLA, I am advised by <a href="https://web.cs.ucla.edu/~weiwang/">Professor Wei Wang</a> and work closely with <a href="https://yijia-xiao.com/">Yijia Xiao</a> on AI for science and AI for finance. I also work on robot learning with <a href="https://yuchencui.cc/">Professor Yuchen Cui</a>, and on probabilistic inference and constrained decoding with <a href="https://yidouweng.github.io/">Gwen Yidou-Weng</a> and <a href="https://web.cs.ucla.edu/~guyvdb/">Professor Guy Van den Broeck</a>. Beyond UCLA, I collaborate on personalized safety with <a href="https://yuchenlwu.github.io/">Yuchen Wu</a> and <a href="https://faculty.washington.edu/aylin/">Professor Aylin Caliskan</a> at the University of Washington and <a href="https://jd92.wang/">Professor Jindong Wang</a> at William &amp; Mary.</p>
 
     <p class="intro">I am interested in the <b>safety, robustness, and interpretability</b> of foundation models. I am also interested in <b>robotics</b> and making embodied systems more capable, reliable, and safe in real-world deployment.</p>
 
